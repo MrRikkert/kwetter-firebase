@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-register",
@@ -19,7 +20,13 @@ export class RegisterComponent {
     ]),
   });
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
-  register(): void {}
+  register(): void {
+    this.authService.register(
+      this.registerForm.get("username").value,
+      this.registerForm.get("email").value,
+      this.registerForm.get("password").value
+    );
+  }
 }
