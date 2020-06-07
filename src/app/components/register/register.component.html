@@ -1,0 +1,38 @@
+<div fxLayout fxLayoutAlign="center center">
+  <mat-card fxFlex="400px" fxFlex.xs="90%">
+    <mat-card-title>Register</mat-card-title>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <mat-card-content fxLayout="column" fxLayoutGap="10px">
+        <mat-form-field fxFlex>
+          <input matInput placeholder="Username" formControlName="username" />
+          <mat-error>Username must be a minimum of 5 characters!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <input matInput placeholder="Email" formControlName="email" />
+          <mat-error>You must enter a valid email address!</mat-error>
+        </mat-form-field>
+
+        <mat-form-field fxFlex>
+          <input
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            type="password"
+          />
+          <mat-error>Password must be a minimum of 8 characters!</mat-error>
+        </mat-form-field>
+
+        <button
+          fxFlex
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="!registerForm.valid"
+        >
+          REGISTER
+        </button>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</div>

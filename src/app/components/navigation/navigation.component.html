@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+    [position]="(isHandset$ | async) ? 'start' : 'end'"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <div *ngIf="currentUser | async as user; else auth">
+        <a mat-list-item href="#">
+          {{ user.username }}
+        </a>
+        <mat-action-list>
+          <button mat-list-item (click)="logout()">Logout</button>
+        </mat-action-list>
+      </div>
+      <ng-template #auth>
+        <a
+          mat-list-item
+          [routerLink]="['/login']"
+          routerLinkActive="list-item-active"
+          >Login</a
+        >
+        <a
+          mat-list-item
+          [routerLink]="['/register']"
+          routerLinkActive="list-item-active"
+          >Register</a
+        >
+      </ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>PyMusic</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="main-container" #mainContainer>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
