@@ -8,6 +8,7 @@ import {
   canActivate,
 } from "@angular/fire/auth-guard";
 import { ProfileComponent } from "./components/profile/profile.component";
+import { HomeComponent } from "./components/home/home.component";
 
 const redirectToLogin = redirectUnauthorizedTo(["login"]);
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "/register",
+    redirectTo: "/home",
   },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
     component: ProfileComponent,
     ...canActivate(redirectToLogin),
   },
+  { path: "home", component: HomeComponent },
 ];
 
 @NgModule({

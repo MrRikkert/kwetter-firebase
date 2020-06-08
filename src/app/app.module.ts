@@ -5,6 +5,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { AngularFireStorageModule } from "@angular/fire/storage";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatProgressSpinnerModule } from "@angular/material";
@@ -27,6 +28,8 @@ import { LoginComponent } from "./components/login/login.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { ProfileComponent } from "./components/profile/profile.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { HomeComponent } from "./components/home/home.component";
+import { TweetComponent } from "./components/tweet/tweet.component";
 
 @NgModule({
   declarations: [
@@ -35,6 +38,8 @@ import { RegisterComponent } from "./components/register/register.component";
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    HomeComponent,
+    TweetComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -56,6 +61,7 @@ import { RegisterComponent } from "./components/register/register.component";
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireAuthGuardModule,
