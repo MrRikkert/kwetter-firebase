@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
+import { AuthService } from "src/app/services/auth.service";
 
 @Component({
   selector: "app-navigation",
@@ -16,7 +17,14 @@ export class NavigationComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  currentUser: Observable<firebase.User> = this.auth.user;
 
-  logout() {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private auth: AuthService
+  ) {}
+
+  logout() {
+    this.auth.logout();
+  }
 }

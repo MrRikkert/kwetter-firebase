@@ -24,6 +24,8 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { RegisterComponent } from "./components/register/register.component";
+import { ProfileComponent } from "./components/profile/profile.component";
+import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { RegisterComponent } from "./components/register/register.component";
     NavigationComponent,
     LoginComponent,
     RegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -53,6 +56,7 @@ import { RegisterComponent } from "./components/register/register.component";
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireAuthGuardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
