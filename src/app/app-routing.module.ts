@@ -2,9 +2,14 @@ import { RegisterComponent } from "./components/register/register.component";
 import { LoginComponent } from "./components/login/login.component";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { AppComponent } from "./app.component";
-import { AngularFireAuthGuard } from "@angular/fire/auth-guard";
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+  canActivate,
+} from "@angular/fire/auth-guard";
 import { ProfileComponent } from "./components/profile/profile.component";
+
+const redirectToLogin = redirectUnauthorizedTo(["login"]);
 
 const routes: Routes = [
   {
@@ -17,7 +22,7 @@ const routes: Routes = [
   {
     path: "me",
     component: ProfileComponent,
-    canActivate: [AngularFireAuthGuard],
+    ...canActivate(redirectToLogin),
   },
 ];
 
