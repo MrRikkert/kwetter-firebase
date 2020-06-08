@@ -1,5 +1,5 @@
 <div fxLayout fxLayoutAlign="center center">
-  <mat-card fxFlex="400px" fxFlex.xs="90%">
+  <mat-card fxFlex="400px" fxFlex.xs="90%" fxLayout="column">
     <mat-card-title>Login</mat-card-title>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <mat-card-content fxLayout="column" fxLayoutGap="10px">
@@ -20,14 +20,22 @@
 
         <button
           fxFlex
+          fxLayoutAlign="center center"
           mat-raised-button
-          color="accent"
+          color="white"
           type="submit"
           [disabled]="!loginForm.valid"
         >
-          LOGIN
+          <mat-spinner
+            [diameter]="36"
+            *ngIf="this.loading; else text"
+          ></mat-spinner>
+          <ng-template #text>LOGIN</ng-template>
         </button>
       </mat-card-content>
     </form>
+    <button fxFlex mat-raised-button color="accent" (click)="loginWithGoogle()">
+      Login with Google
+    </button>
   </mat-card>
 </div>

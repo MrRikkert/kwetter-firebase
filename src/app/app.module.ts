@@ -3,9 +3,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MatProgressSpinnerModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
@@ -23,9 +25,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/login/login.component";
 import { NavigationComponent } from "./components/navigation/navigation.component";
-import { RegisterComponent } from "./components/register/register.component";
 import { ProfileComponent } from "./components/profile/profile.component";
-import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
+import { RegisterComponent } from "./components/register/register.component";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AngularFireAuthGuardModule } from "@angular/fire/auth-guard";
     MatSnackBarModule,
     MatToolbarModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,

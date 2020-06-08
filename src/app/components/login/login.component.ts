@@ -16,12 +16,21 @@ export class LoginComponent {
     ]),
   });
 
+  loading = false;
+
   constructor(private authService: AuthService) {}
 
   login(): void {
-    this.authService.login(
-      this.loginForm.get("email").value,
-      this.loginForm.get("password").value
-    );
+    this.loading = true;
+    this.authService
+      .login(
+        this.loginForm.get("email").value,
+        this.loginForm.get("password").value
+      )
+      .finally(() => (this.loading = false));
+  }
+
+  loginWithGoogle(): void {
+    this.authService.loginWithGoogle();
   }
 }

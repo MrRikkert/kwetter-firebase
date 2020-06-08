@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { auth } from "firebase/app";
 
 @Injectable({
   providedIn: "root",
@@ -24,14 +24,20 @@ export class AuthService {
   }
 
   register(username: string, email: string, password: string) {
-    this.afAuth.auth
+    return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => res.user.updateProfile({ displayName: username }));
   }
 
   login(email: string, password: string) {
-    this.afAuth.auth
+    return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
+      .then(() => this.router.navigate(["/me"]));
+  }
+
+  loginWithGoogle() {
+    return this.afAuth.auth
+      .signInWithPopup(new auth.GoogleAuthProvider())
       .then(() => this.router.navigate(["/me"]));
   }
 
