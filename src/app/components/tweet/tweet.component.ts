@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { AngularFireStorage } from "@angular/fire/storage";
+import { Tweet } from "src/app/models/tweet";
 
 @Component({
   selector: "app-tweet",
@@ -7,6 +8,9 @@ import { AngularFireStorage } from "@angular/fire/storage";
   styleUrls: ["./tweet.component.scss"],
 })
 export class TweetComponent implements OnInit {
+  @Input()
+  tweet: Tweet;
+
   constructor(private storage: AngularFireStorage) {
     console.log(
       this.storage

@@ -12,15 +12,6 @@ export class AuthService {
 
   constructor(public afAuth: AngularFireAuth, private router: Router) {
     this.user = afAuth.authState;
-    // .pipe(
-    //   map((user) => {
-    //     if (!user) {
-    //       return null;
-    //     } else {
-    //       return user;
-    //     }
-    //   })
-    // );
   }
 
   register(username: string, email: string, password: string) {
