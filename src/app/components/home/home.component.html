@@ -1,3 +1,11 @@
 <div fxLayout="column" fxLayoutAlign="start center" class="tweets">
   <app-tweet *ngFor="let tweet of tweets | async" [tweet]="tweet"></app-tweet>
+  <button
+    mat-raised-button
+    color="accent"
+    class="tweet-button"
+    (click)="openTweetDialog()"
+  >
+    Send a tweet!
+  </button>
 </div>

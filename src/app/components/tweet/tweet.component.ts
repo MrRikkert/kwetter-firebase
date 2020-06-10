@@ -12,12 +12,10 @@ export class TweetComponent implements OnInit {
   tweet: Tweet;
 
   constructor(private storage: AngularFireStorage) {
-    console.log(
-      this.storage
-        .ref("assets/default-user-icon.png")
-        .getDownloadURL()
-        .subscribe((url) => console.log(url))
-    );
+    this.storage
+      .ref("assets/default-user-icon.png")
+      .getDownloadURL()
+      .subscribe((url) => console.log(url));
   }
 
   ngOnInit() {}

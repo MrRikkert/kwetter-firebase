@@ -14,6 +14,10 @@ export class AuthService {
     this.user = afAuth.authState;
   }
 
+  getCurrentUser(): Observable<firebase.User> {
+    return this.user;
+  }
+
   register(username: string, email: string, password: string) {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(email, password)

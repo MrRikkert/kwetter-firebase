@@ -17,4 +17,8 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.tweets = this.tweetService.getTweets();
   }
+
+  openTweetDialog() {
+    console.log("opened");
+  }
 }
