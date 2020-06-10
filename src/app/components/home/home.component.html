@@ -5,6 +5,7 @@
     color="accent"
     class="tweet-button"
     (click)="openTweetDialog()"
+    *ngIf="currentUser | async"
   >
     Send a tweet!
   </button>

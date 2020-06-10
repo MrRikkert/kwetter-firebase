@@ -1,0 +1,26 @@
+<div fxFlex="400px" fxFlex.xs="250px">
+  <form
+    [formGroup]="tweetForm"
+    fxLayout="column"
+    fxLayoutGap="3px"
+    (ngSubmit)="sendTweet()"
+  >
+    <mat-form-field fxFlex>
+      <textarea
+        matInput
+        mat-autosize
+        placeholder="Type your thoughts"
+        formControlName="tweet"
+      ></textarea>
+    </mat-form-field>
+    <button
+      fxFlex
+      mat-raised-button
+      color="accent"
+      type="submit"
+      [disabled]="!tweetForm.valid"
+    >
+      Tweet!
+    </button>
+  </form>
+</div>

@@ -10,7 +10,7 @@ import { AuthService } from "./auth.service";
 export class TweetService {
   constructor(
     private firestore: AngularFirestore,
-    private authService: AuthService
+    public authService: AuthService
   ) {}
 
   getTweets(): Observable<Tweet[]> {
@@ -31,7 +31,7 @@ export class TweetService {
         user_id: user.uid,
         photo_url: user.photoURL,
       };
+      this.firestore.collection<Tweet>("tweets").add(tweet);
     });
-    this.firestore.collection<Tweet>("tweets").add(tweet);
   }
 }

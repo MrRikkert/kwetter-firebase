@@ -8,7 +8,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ReactiveFormsModule } from "@angular/forms";
-import { MatProgressSpinnerModule } from "@angular/material";
+import { MatProgressSpinnerModule, MatDialogModule } from "@angular/material";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
@@ -30,6 +30,7 @@ import { ProfileComponent } from "./components/profile/profile.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { HomeComponent } from "./components/home/home.component";
 import { TweetComponent } from "./components/tweet/tweet.component";
+import { ComposeTweetComponent } from "./components/compose-tweet/compose-tweet.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TweetComponent } from "./components/tweet/tweet.component";
     ProfileComponent,
     HomeComponent,
     TweetComponent,
+    ComposeTweetComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -60,6 +62,7 @@ import { TweetComponent } from "./components/tweet/tweet.component";
     MatToolbarModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
     AngularFirestoreModule,
@@ -68,5 +71,6 @@ import { TweetComponent } from "./components/tweet/tweet.component";
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents: [ComposeTweetComponent],
 })
 export class AppModule {}
