@@ -27,13 +27,13 @@ export class AuthService {
   login(email: string, password: string) {
     return this.afAuth.auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => this.router.navigate(["/me"]));
+      .then(() => this.router.navigate(["/home"]));
   }
 
   loginWithGoogle() {
     return this.afAuth.auth
       .signInWithPopup(new auth.GoogleAuthProvider())
-      .then(() => this.router.navigate(["/me"]));
+      .then(() => this.router.navigate(["/home"]));
   }
 
   logout() {
