@@ -5,7 +5,7 @@
         <img
           class="tweet-profile-image"
           mat-card-image
-          src="https://firebasestorage.googleapis.com/v0/b/kwetter-flutter.appspot.com/o/assets%2Fdefault-user-icon.png?alt=media&token=eecaee30-967d-4075-9840-2e89c18f3a84"
+          src="{{ tweet.photo_url ? tweet.photo_url : defaultPhotoURL }}"
         />
       </div>
       <mat-card-title>{{ tweet.username }}</mat-card-title>
